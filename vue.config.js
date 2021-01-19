@@ -10,14 +10,15 @@ module.exports = {
         // 是否开启https协议
         host: 'localhost',
         //设置主机名
-        proxy: {
-            '/api': {
-                target: '',
-                changeOrigin: true, // 开启代理
-                pathRewrite: { // 重写路径
-                    '^/api': ''
-                }
-            }
-        }
+        // proxy: {
+        //     '/api': {
+        //         target: '',
+        //         changeOrigin: true, // 开启代理
+        //         pathRewrite: { // 重写路径
+        //             '^/api': ''
+        //         }
+        //     }
+        // }
     }
+    
 }
