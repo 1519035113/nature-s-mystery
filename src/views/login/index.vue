@@ -11,9 +11,11 @@ export default {
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {console.log('11111')},
   watch: {},
-  methods: {},
+  methods: {
+    
+  },
   components: {}
 };
 </script>

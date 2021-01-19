@@ -1,5 +1,5 @@
 export default [{
     path: '',
     name: '',
-    component: () => import()
+    // component: () => import()
 }]
