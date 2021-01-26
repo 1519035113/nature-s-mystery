@@ -2,17 +2,18 @@
 import request from '@/utils/request'
 
 // 登录接口
-export function login() {
+export function Login(data) {
     return request({
-        url: '',
-        method: ''
+        url: '/manage/user/login.do',
+        method: 'POST',
+        data: data
     })
 }
 
 // 退出登录接口
-export function logout() {
+export function Logout() {
     return request({
-        url: '',
-        method: ''
+        url: '/user/logout.do',
+        method: 'POST'
     })
 }

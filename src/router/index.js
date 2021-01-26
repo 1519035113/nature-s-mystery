@@ -3,14 +3,16 @@ import VueRouter from 'vue-router'
 
 
 Vue.use(VueRouter)
-import route from './route'
+import ray from './ray'
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'login',
     component: () => import('@/views/login')
   },
-  ...route
+ 
+  ...ray
 ]
 
 const router = new VueRouter({

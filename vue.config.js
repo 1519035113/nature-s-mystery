@@ -5,7 +5,7 @@ const resolve = dir => path.join(__dirname, dir)
 
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const isProduction = process.env.NODE_ENV === 'production';
 
 // 本地环境是否需要使用cdn
@@ -48,7 +48,7 @@ module.exports = {
     outputDir: 'dist', // 打包后文件的目录 （默认为dist）
     assetsDir: 'static', //  outputDir的静态资源(js、css、img、fonts)目录  默认为‘’没有单独目录js/css/img在根目录中。
     devServer: {
-        port: 8000,
+        port: 8888,
         // 配置端口号
         open: true,
         // 配置服务器自动打开浏览器
@@ -56,15 +56,15 @@ module.exports = {
         // 是否开启https协议
         host: 'localhost',
         //设置主机名
-        // proxy: {
-        //     '/api': {
-        //         target: '',
-        //         changeOrigin: true, // 开启代理
-        //         pathRewrite: { // 重写路径
-        //             '^/api': ''
-        //         }
-        //     }
-        // }
+        proxy: {
+            '/api': {
+                target: 'http://admintest.happymmall.com/',
+                changeOrigin: true, // 开启代理
+                pathRewrite: { // 重写路径
+                    '^/api': ''
+                }
+            }
+        }
     },
     chainWebpack: config => {
 
@@ -101,17 +101,17 @@ module.exports = {
                 // deleteOriginalAssets: true // 删除原文件
             })
         ];
-        config.plugins.push(
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    compress: {
-                        drop_console: true, //console
-                        pure_funcs: ['console.log'] //移除console
-                    }
-                },
-                parallel: true
-            }),
-        )
+        // config.plugins.push(
+        //     new UglifyJsPlugin({
+        //         uglifyOptions: {
+        //             compress: {
+        //                 drop_console: true, //console
+        //                 pure_funcs: ['console.log'] //移除console
+        //             }
+        //         },
+        //         parallel: true
+        //     }),
+        // )
         // 公共代码抽离
         config.optimization = {
             splitChunks: {
