@@ -11,7 +11,8 @@ let loading
 
 let request = axios.create({
     baseURL: baseUrl,
-    timeout: 6800
+    timeout: 6800,
+    withCredentials:true
 })
 //请求拦截
 request.interceptors.request.use((config) => {
