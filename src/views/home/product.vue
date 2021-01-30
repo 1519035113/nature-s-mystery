@@ -35,19 +35,21 @@
               size="mini"
               style="margin:0 5px;padding:3px 5px"
               type="success"
+              @click="xiajia(scope.row.id,scope.row.status)"
             >下架</el-button>
             <el-button
               v-if="scope.row.status == 2"
               size="mini"
               style="margin:0 5px;padding:3px 5px"
               type="success"
+              @click="shangjia(scope.row.id,scope.row.status)"
             >上架</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="address" label="操作">
           <template slot-scope="scope">
-            <el-button type="text">查看</el-button>
-            <el-button type="text">编辑</el-button>
+            <el-button @click="lookDetail(scope.row.id)" type="text">查看</el-button>
+            <el-button @click="edit(scope.row.id)" type="text">编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -64,7 +66,7 @@
 </template>
 
 <script>
-import { getList, getIdList, getNameList } from "@/api/product";
+import { getList, getIdList, getNameList, xjData, sjData } from "@/api/product";
 export default {
   data() {
     return {
@@ -124,6 +126,62 @@ export default {
       console.log(`当前页: ${val}`);
       this.pageNum = val;
       this.gettList();
+    },
+    // 下架
+    xiajia(id, data) {
+      let status = data == 1 ? 2 : 1;
+      console.log(status);
+      this.$confirm("确认要下架该商品？", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(async () => {
+          let res = await xjData(id, status);
+          console.log(res);
+          if (res.status == 0) {
+            this.$message.success(res.data);
+            this.gettList();
+          }
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消下架"
+          });
+        });
+    },
+    // 上架
+    shangjia(id, data) {
+      let status = data == 1 ? 2 : 1;
+      console.log(status);
+      this.$confirm("确认要上架该商品？", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(async () => {
+          let res = await xjData(id, status);
+          console.log(res);
+          if (res.status == 0) {
+            this.$message.success(res.data);
+            this.gettList();
+          }
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消上架"
+          });
+        });
+    },
+    // 查看
+    lookDetail(id){
+      this.$router.push('/home/p_detail?id='+id)
+    },
+    // 编辑
+    edit(id){
+      this.$router.push('/home/p_save?id='+id)
     }
   },
   components: {}

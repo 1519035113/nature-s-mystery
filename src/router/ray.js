@@ -43,5 +43,25 @@ export default [{
             component: () => import('@/views/home/order'),
             
         }]
+    },
+    {
+        path: '/home/p_detail',
+        component: () => import('@/views/home'),
+        children: [{
+            path: '/',
+            name: 'p_detail',
+            component: () => import('@/views/home/p_detail'),
+            
+        }]
+    },
+    {
+        path: '/home/p_save',
+        component: () => import('@/views/home'),
+        children: [{
+            path: '/',
+            name: 'p_save',
+            component: () => import('@/views/home/p_save'),
+            
+        }]
     }
 ]
