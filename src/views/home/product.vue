@@ -2,7 +2,7 @@
   <div class="gaine">
     <div class="header">
       <p>商品管理</p>
-      <el-button type="primary" icon="el-icon-plus">添加商品</el-button>
+      <el-button type="primary" icon="el-icon-plus" @click="$router.push('/home/p_save')">添加商品</el-button>
     </div>
     <div class="content">
       <div class="inp">

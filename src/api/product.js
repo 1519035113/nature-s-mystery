@@ -50,9 +50,26 @@ export function getCate(id) {
     })
 }
 // 编辑接口
+
 export function getEdit(categoryId,name,subtitle,subImages,detail,price,stock,status,id) {
     return request({
         url: `/manage/product/save.do?categoryId=${categoryId}&name=${name}&subtitle=${subtitle}&subImages=${subImages}&detail=${detail}&price=${price}&stock=${stock}&status=${status}&id=${id}`,
         method: 'GET',
+    })
+}
+// 添加接口
+
+export function setData(categoryId,name,subtitle,subImages,detail,price,stock,status) {
+    return request({
+        url: `/manage/product/save.do?categoryId=${categoryId}&name=${name}&subtitle=${subtitle}&subImages=${subImages}&detail=${detail}&price=${price}&stock=${stock}&status=${status}`,
+        method: 'GET',
+    })
+}
+// 图片
+export function zhuanPhoto(formData) {
+    return request({
+        url: `/manage/product/upload.do`,
+        method: 'POST',
+        data: formData
     })
 }
