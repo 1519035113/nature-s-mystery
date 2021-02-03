@@ -1,8 +1,7 @@
 <template>
   <div class="gaine">
     <div class="header">
-      <p>品类管理</p>
-      <el-button type="primary" icon="el-icon-plus" @click="$router.push('/home/c_add')">添加品类</el-button>
+      <p>品类管理--添加品类</p>
     </div>
     <div class="content">
         

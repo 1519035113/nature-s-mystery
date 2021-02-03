@@ -63,5 +63,15 @@ export default [{
             component: () => import('@/views/home/p_save'),
             
         }]
+    },
+    {
+        path: '/home/c_add',
+        component: () => import('@/views/home'),
+        children: [{
+            path: '/',
+            name: 'c_add',
+            component: () => import('@/views/home/c_add'),
+            
+        }]
     }
 ]
