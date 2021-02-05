@@ -4,7 +4,7 @@
       <p>品类管理--添加品类</p>
     </div>
     <div class="content">
-        
+     
     </div>
   </div>
 </template>
@@ -12,7 +12,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      
+    };
   },
   computed: {},
   created() {},
