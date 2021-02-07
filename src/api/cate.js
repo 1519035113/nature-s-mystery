@@ -16,3 +16,11 @@ export function setName(id,name) {
     })
 }
 
+
+// 添加品类
+export function addCateName(id,categoryName) {
+    return request({
+        url: `/manage/category/add_category.do?parentId=${id}&categoryName=${categoryName}`,
+        method: 'GET',
+    })
+}
